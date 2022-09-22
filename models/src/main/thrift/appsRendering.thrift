@@ -18,10 +18,10 @@ enum RelatedItemType {
 }
 
 enum Edition {
-	UK,
-	US,
-	AU,
-	INTERNATIONAL
+    UK,
+    US,
+    AU,
+    INTERNATIONAL
 }
 
 struct Image {
@@ -118,7 +118,6 @@ struct FootballContent {
     7: required FootballTeam awayTeam
     8: optional string venue
 }
-
 
 struct Newsletter {
     1: required string identityName
