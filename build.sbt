@@ -47,11 +47,11 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
     publishTo := sonatypePublishToBundle.value,
 
     scmInfo := Some(ScmInfo(
-      url("https://github.com/guardian/apps-rendering"),
-      "scm:git:git@github.com:guardian/apps-rendering.git"
+      url("https://github.com/guardian/apps-rendering-api-models"),
+      "scm:git:git@github.com:guardian/apps-rendering-api-models.git"
     )),
 
-    homepage := Some(url("https://github.com/guardian/apps-rendering")),
+    homepage := Some(url("https://github.com/guardian/apps-rendering-api-models")),
 
     developers := List(Developer(
       id = "Guardian",
