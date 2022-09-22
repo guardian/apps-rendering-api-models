@@ -20,10 +20,10 @@ val libraryDeps = Seq(
 )
 
 lazy val commonSettings = Seq(
-    description := "Models used by the apps-rendering API",
+  description := "Models used by the apps-rendering API",
 	// downgrade scrooge reserved word clashes to warnings
 	Compile / scroogeDisableStrict := true,
-	Compile / scroogeThriftSourceFolder := baseDirectory.value / "../models/src/main/thrift",
+	Compile / scroogeThriftSourceFolder := baseDirectory.value / "../src/main/thrift",
 	Compile / scroogeThriftDependencies ++= scroogeDependencies,
 )
 
