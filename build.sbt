@@ -28,7 +28,7 @@ lazy val commonSettings = Seq(
 )
 
 ThisBuild / organization := "com.gu"
-ThisBuild / scalaVersion := "2.12.11"
+ThisBuild / scalaVersion := "2.13.9"
 ThisBuild / licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
 lazy val scalaApiModels = project.in(file("models") / "scala")
@@ -36,7 +36,7 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
   .settings(
     name := "apps-rendering-api-models",
 
-	Compile / scroogeLanguages := Seq("scala"),
+    Compile / scroogeLanguages := Seq("scala"),
 
     libraryDependencies ++= Seq(
       "org.apache.thrift" % "libthrift" % "0.16.0",
