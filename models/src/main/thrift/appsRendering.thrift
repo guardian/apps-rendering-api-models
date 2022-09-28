@@ -21,7 +21,8 @@ enum Edition {
     UK,
     US,
     AU,
-    INTERNATIONAL
+    INTERNATIONAL,
+    EUROPE
 }
 
 struct Image {
