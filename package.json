@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "version": "changeset version",
-    "postversion": "./updateVersionSbt.sh"
+    "postversion": "./scripts/updateVersionSbt.sh"
   },
   "repository": {
     "type": "git",
