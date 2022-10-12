@@ -2,7 +2,18 @@
 
 These models are used to communicate with the Apps Rendering API
 
-## How to release
+## How to release to NPM (beta)
+
+This repository uses [`changesets`](https://github.com/changesets/changesets) to manage versions and releases.
+
+To create a changeset, ensure you are using the correct Node version defined in `.nvmrc` and have dependencies installed by running `npm install`. Then:
+
+- Run `npx changeset`. Select the type of change and enter a description
+- Commit and push the changeset file to your branch
+- When merged to `main`, the [changesets action](.github/workflows/changesets.yaml) will open a PR with the details of all unreleased changes
+- Merging this "Release PR" will publish changes to `npm` and create a GitHub Release
+
+## How to release to NPM and Sonatype (legacy)
 
 Prerequisites:
 
