@@ -3,6 +3,10 @@
   "version": "1.1.1",
   "description": "These models are used to communicate with the Apps Rendering API",
   "private": true,
+  "scripts": {
+    "version": "changeset version",
+    "postversion": "./updateVersionSbt.sh"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guardian/apps-rendering-api-models.git"
