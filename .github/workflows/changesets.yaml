@@ -19,9 +19,18 @@ jobs:
 
       - run: npm install
 
-      - name: Create Release Pull Request
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: corretto
+          java-version: 8
+          cache: sbt
+
+      - name: Create Release Pull Request or Release Packages
         uses: changesets/action@v1
         with:
           version: npm run version
+          publish: scripts/publish.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
