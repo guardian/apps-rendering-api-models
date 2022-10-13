@@ -1,0 +1,29 @@
+name: Changesets
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  release_npm:
+    name: Release to npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: corretto
+          java-version: 8
+          cache: sbt
+
+      - name: Release to NPM
+        run: scripts/release-npm.sh
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
