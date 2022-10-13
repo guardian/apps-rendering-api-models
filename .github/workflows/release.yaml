@@ -2,7 +2,7 @@ name: Changesets
 
 on:
   release:
-    types: [released]
+    types: [published]
 
 jobs:
   release_npm:
@@ -24,6 +24,13 @@ jobs:
           cache: sbt
 
       - name: Release to NPM
+        if: "!github.event.release.prerelease"
         run: scripts/release-npm.sh
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Release Snapshot to NPM
+        if: "github.event.release.prerelease"
+        run: scripts/release-npm.sh snapshot
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

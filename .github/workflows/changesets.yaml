@@ -19,13 +19,6 @@ jobs:
 
       - run: npm install
 
-      - name: Setup JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: corretto
-          java-version: 8
-          cache: sbt
-
       - name: Create Release Pull Request or Release Packages
         uses: changesets/action@v1
         with:
