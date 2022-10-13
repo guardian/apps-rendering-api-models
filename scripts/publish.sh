@@ -1,5 +1,5 @@
 #!/bin/bash
 
-VERSION=$(./scripts/getVersion.sh)
+VERSION=$(./scripts/get-version.sh)
 
 sbt "project tsApiModels" "releaseNpm $VERSION"
