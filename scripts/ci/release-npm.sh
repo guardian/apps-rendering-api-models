@@ -2,9 +2,9 @@
 
 set -e
 
-pushd -q $(dirname $0)
+pushd $(dirname $0)
 VERSION=$(./get-version.sh)
-popd -q
+popd
 
 if npm view "@guardian/apps-rendering-api-models@$VERSION" > /dev/null 2>&1 ; then
     echo "$VERSION already released. Exiting"

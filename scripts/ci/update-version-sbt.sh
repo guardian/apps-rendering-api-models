@@ -1,5 +1,7 @@
 #!/bin/bash
 
-VERSION=$(./scripts/get-version.sh)
+pushd $(dirname $0)
+VERSION=$(./get-version.sh)
+popd
 
 echo "ThisBuild / version := \"$VERSION\"" > ./models/scala/version.sbt
