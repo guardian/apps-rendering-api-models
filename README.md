@@ -2,16 +2,26 @@
 
 These models are used to communicate with the Apps Rendering API
 
-## How to release to NPM (beta)
+## How to release to NPM
 
 This repository uses [`changesets`](https://github.com/changesets/changesets) to manage versions and releases.
 
-To create a changeset, ensure you are using the correct Node version defined in `.nvmrc` and have dependencies installed by running `npm install`. Then:
+To create a changeset, ensure you are using the correct Node version defined in [`.nvmrc`](./.nvmrc) and project dependencies installed by running `npm install`. Then:
 
 - Run `npx changeset`. Select the type of change and enter a description
 - Commit and push the changeset file to your branch
-- When merged to `main`, the [changesets action](.github/workflows/changesets.yaml) will open a PR with the details of all unreleased changes
-- Merging this "Release PR" will publish changes to `npm` and create a GitHub Release
+- When your feature PR is merged to `main`, the [changesets action](.github/workflows/changesets.yaml) will open a PR against `main` with the details of all unreleased changes. This is a "Release PR"
+- When ready to make the release, create a GitHub Release
+    - Set the tag to the version in [`package.json`](./package.json), prefixed with with `v`. For example: `v1.1.0`
+    - When you publish the release, the package will be published to npm automatically
+
+## How to release a Snapshot to NPM
+
+- Create a branch which has the changes you want to test
+- Create a **Prerelease** using GitHub Releases
+    - Set the Target to your branch
+    - You must also create a tag for the snapshot release. For example, `v0.0.0-2022-10-20-SNAPSHOT`
+    - To automatically release the snapshot to `npm`, publish the prerelease
 
 ## How to release to NPM and Sonatype (legacy)
 
