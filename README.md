@@ -22,6 +22,7 @@ To create a changeset, ensure you are using the correct Node version defined in 
     - Set the Target to your branch
     - You must also create a tag for the snapshot release. For example, `v0.0.0-2022-10-20-SNAPSHOT`
     - To automatically release the snapshot to `npm`, publish the prerelease
+    - Snapshots are released to the `snapshot` tag on `npm`. You can install them with `npm install @guardian/apps-rendering-api-models@snapshot`
 
 ## How to release to NPM and Sonatype (legacy)
 

@@ -31,6 +31,6 @@ jobs:
       
       - name: Release Snapshot to NPM
         if: "github.event.release.prerelease"
-        run: scripts/release-npm.sh snapshot
+        run: scripts/release-snapshot-npm.sh
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

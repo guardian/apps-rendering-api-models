@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+
 VERSION=$(scripts/get-version.sh)
 SNAPSHOT=false
 
