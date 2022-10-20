@@ -11,9 +11,7 @@ To create a changeset, ensure you are using the correct Node version defined in 
 - Run `npx changeset`. Select the type of change and enter a description
 - Commit and push the changeset file to your branch
 - When your feature PR is merged to `main`, the [changesets action](.github/workflows/changesets.yaml) will open a PR against `main` with the details of all unreleased changes. This is a "Release PR"
-- When ready to make the release, create a GitHub Release
-    - Set the tag to the version in [`package.json`](./package.json), prefixed with with `v`. For example: `v1.1.0`
-    - When you publish the release, the package will be published to npm automatically
+- When ready to release, merge the Release PR
 
 ## How to release a Snapshot to NPM
 
