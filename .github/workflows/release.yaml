@@ -22,15 +22,8 @@ jobs:
           distribution: corretto
           java-version: 8
           cache: sbt
-
-      - name: Release to NPM
-        if: "!github.event.release.prerelease"
-        run: scripts/release-npm.sh
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       
       - name: Release Snapshot to NPM
-        if: "github.event.release.prerelease"
-        run: scripts/release-snapshot-npm.sh
+        run: scripts/ci/release-snapshot-npm.sh
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

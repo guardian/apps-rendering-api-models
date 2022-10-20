@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-VERSION=$(scripts/get-version.sh)
+pushd -q $(dirname $0)
+VERSION=$(./get-version.sh)
+popd -q
 
 # If we are in CI and this is a snapshot release, we should get the version from the tag created in the GitHub Release
 if [[ $CI ]] ; then
