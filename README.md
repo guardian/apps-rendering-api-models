@@ -22,22 +22,20 @@ To create a changeset, ensure you are using the correct Node version defined in 
     - To automatically release the snapshot to `npm`, publish the prerelease
     - Snapshots are released to the `snapshot` tag on `npm`. You can install them with `npm install @guardian/apps-rendering-api-models@snapshot`
 
-## How to release to NPM and Sonatype (legacy)
+## How to release to Sonatype
 
 Prerequisites:
 
 - have a Sonatype account with access to the guardian organisation
-- have an NPM account, part of the [@guardian](https://www.npmjs.com/org/guardian) org with a [configured token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens)
-- have typescript installed globally (`npm i -g typescript`)
 
-Make sure you set upstream `git push --set-upstream origin <BRANCH_NAME>`
+Steps:
 
-In the SBT repl:
+- Having followed the instructions in [How to release to NPM](#how-to-release-to-npm) (including merging the "Release PR"):
+    - switch to branch `main` and `git pull`
+- In the SBT repl:
 
 ```sbtshell
 clean
 project scalaApiModels
-release
-project tsApiModels
-releaseNpm <versionNumber>
+release with-defaults
 ```
