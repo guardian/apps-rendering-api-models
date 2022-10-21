@@ -6,7 +6,7 @@ These models are used to communicate with the Apps Rendering API
 
 This repository uses [`changesets`](https://github.com/changesets/changesets) to manage versions and releases.
 
-To create a changeset, ensure you are using the correct Node version defined in [`.nvmrc`](./.nvmrc) and project dependencies installed by running `npm install`. Then:
+To create a changeset, ensure you are using the correct Node (and associated npm) version defined in [`.nvmrc`](./.nvmrc) and project dependencies installed by running `npm install`. Then:
 
 - Run `npx changeset`. Select the type of change and enter a description
 - Commit and push the changeset file to your branch
