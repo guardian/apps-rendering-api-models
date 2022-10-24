@@ -70,3 +70,5 @@ project/**/metals.sbt
 
 target
 /project/project/
+
+node_modules/

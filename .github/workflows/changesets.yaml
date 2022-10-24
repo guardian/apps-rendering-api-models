@@ -1,0 +1,30 @@
+name: Changesets
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create_release_pr:
+    name: Create release PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version-file: '.nvmrc'
+
+      - run: npm install
+
+      - name: Create Release Pull Request or Release Packages
+        uses: changesets/action@v1
+        with:
+          version: npm run version
+          publish: scripts/ci/release-npm.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
