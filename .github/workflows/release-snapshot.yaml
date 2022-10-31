@@ -19,8 +19,6 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup JDK
         uses: actions/setup-java@v3
@@ -31,3 +29,5 @@ jobs:
 
       - name: Release Snapshot to NPM
         run: scripts/ci/release-snapshot-npm.sh
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
