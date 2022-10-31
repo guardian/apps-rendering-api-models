@@ -18,6 +18,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Setup JDK
         uses: actions/setup-java@v3
@@ -25,11 +26,8 @@ jobs:
           distribution: corretto
           java-version: 8
           cache: sbt
-
-      - name: Create .npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: 'echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN\n" >> $HOME/.npmrc'
       
       - name: Release Snapshot to NPM
         run: scripts/ci/release-snapshot-npm.sh
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
