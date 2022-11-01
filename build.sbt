@@ -62,7 +62,7 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
     )),
 
     releaseProcess := Seq[ReleaseStep](
-      checkSnapshotDependencies,
+      // checkSnapshotDependencies,
       inquireVersions,
       runClean,
       runTest,
