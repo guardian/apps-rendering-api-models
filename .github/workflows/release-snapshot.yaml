@@ -27,8 +27,6 @@ jobs:
       
       - name: Release Snapshot to NPM
         run: scripts/ci/release-snapshot-npm.sh
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     
   release_sonatype:
     if: "github.event.release.prerelease"
