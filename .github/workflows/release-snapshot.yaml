@@ -28,6 +28,8 @@ jobs:
           cache: sbt
       
       - name: Release Snapshot to NPM
-        run: scripts/ci/release-snapshot-npm.sh
+        run: |
+          npm config set ignore-scripts true
+          scripts/ci/release-snapshot-npm.sh
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
