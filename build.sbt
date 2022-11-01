@@ -65,7 +65,7 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
 
     releasePublishArtifactsAction := PgpKeys.publishSigned.value,
     releaseProcess := Seq[ReleaseStep](
-      checkSnapshotDependencies,
+      // checkSnapshotDependencies,
       inquireVersions,
       runClean,
       runTest,
