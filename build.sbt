@@ -25,6 +25,7 @@ lazy val commonSettings = Seq(
 	Compile / scroogeDisableStrict := true,
 	Compile / scroogeThriftSourceFolder := baseDirectory.value / "../src/main/thrift",
 	Compile / scroogeThriftDependencies ++= scroogeDependencies,
+	resolvers += Opts.resolver.sonatypeSnapshots
 )
 
 ThisBuild / organization := "com.gu"
