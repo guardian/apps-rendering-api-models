@@ -4,11 +4,6 @@ pushd $(dirname $0)
 VERSION=$(./get-version.sh)
 popd
 
-# If we are in CI and this is a snapshot release, we should get the version from the tag created in the GitHub Release
-if [[ $CI ]] ; then
-    VERSION=$(git describe --tags)
-fi
-
 # Strip a leading "v" character, so "v0.0.0 => 0.0.0"
 if [[ ${VERSION:0:1} == "v" ]] ; then
     VERSION=${VERSION:1}
