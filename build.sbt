@@ -45,8 +45,6 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
     ) ++ libraryDeps,
 
     publishTo := sonatypePublishToBundle.value,
-    // If you are publishing with a Sonatype account created before 2021-02-28, delete this sonatypeCredentialHost override
-    sonatypeCredentialHost := "s01.oss.sonatype.org",
 
     scmInfo := Some(ScmInfo(
       url("https://github.com/guardian/apps-rendering-api-models"),
