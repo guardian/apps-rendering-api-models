@@ -60,15 +60,21 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
       url = url("https://github.com/guardian")
     )),
 
-    releasePublishArtifactsAction := PgpKeys.publishSigned.value,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
       inquireVersions,
       runClean,
       runTest,
       setReleaseVersion,
-      publishArtifacts,
-      releaseStepCommand("sonatypeBundleRelease")
+      releaseStepCommand("publishSigned"),
+      ReleaseStep(action = st => {
+        // sonatypeBundleRelease should only be called if we are not doing a snapshot release
+        // see: https://github.com/xerial/sbt-sonatype/blob/33b6ea4e5a6ca519213f20c349a8a4f57171929a/README.md#buildsbt
+        if (!isSnapshot.value) {
+          releaseStepCommand("sonatypeBundleRelease")
+        }
+        st
+      }),
     )
   )
 

@@ -4,8 +4,7 @@
   "description": "These models are used to communicate with the Apps Rendering API",
   "private": true,
   "scripts": {
-    "version": "changeset version",
-    "postversion": "./scripts/ci/update-version-sbt.sh"
+    "version": "changeset version"
   },
   "repository": {
     "type": "git",
@@ -17,6 +16,6 @@
   },
   "homepage": "https://github.com/guardian/apps-rendering-api-models#readme",
   "dependencies": {
-    "@changesets/cli": "^2.25.0"
+    "@changesets/cli": "^2.25.2"
   }
 }
