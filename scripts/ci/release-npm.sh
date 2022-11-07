@@ -2,6 +2,8 @@
 
 set -e
 
+npm config set ignore-scripts true
+
 pushd $(dirname $0)
 VERSION=$(./get-version.sh)
 popd

@@ -2,7 +2,7 @@
 
 These models are used to communicate with the Apps Rendering API
 
-## How to release to NPM
+## How to release to NPM and Sonatype
 
 This repository uses [`changesets`](https://github.com/changesets/changesets) to manage versions and releases.
 
@@ -21,21 +21,3 @@ To create a changeset, ensure you are using the correct Node (and associated npm
     - You must also create a tag for the snapshot release. Use the following format: `v0.0.0-YYYY-MM-DD-SNAPSHOT`. For example, `v0.0.0-2022-10-20-SNAPSHOT`. It is important the tag **begins** with `v` and **ends** with `-SNAPSHOT`.
     - To automatically release the snapshot to `npm` and `sonatype`, publish the prerelease
     - Snapshots are released to the `snapshot` tag on `npm`. You can install them with `npm install @guardian/apps-rendering-api-models@snapshot`
-
-## How to release to Sonatype
-
-Prerequisites:
-
-- a Sonatype account with access to the guardian organisation
-
-Steps:
-
-- Having followed the instructions in [How to release to NPM](#how-to-release-to-npm) (including merging the "Release PR"):
-    - switch to branch `main` and `git pull`
-- In the SBT repl:
-
-```sbtshell
-clean
-project scalaApiModels
-release with-defaults
-```
