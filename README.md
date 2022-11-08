@@ -15,9 +15,11 @@ To create a changeset, ensure you are using the correct Node (and associated npm
 
 ## How to release a Snapshot to NPM and Sonatype
 
-- Create a branch which has the changes you want to test
-- Create a **Prerelease** using GitHub Releases
+- Push the branch with the changes you want to test to GitHub
+- [**Click here**](https://github.com/guardian/apps-rendering-api-models/releases/new?prerelease=true) to create a **Prerelease** using GitHub Releases
     - Set the Target to your branch
     - You must also create a tag for the snapshot release. Use the following format: `v0.0.0-YYYY-MM-DD-SNAPSHOT`. For example, `v0.0.0-2022-10-20-SNAPSHOT`. It is important the tag **begins** with `v` and **ends** with `-SNAPSHOT`.
+    - Make sure the "Set as pre-release" box is ticked:
+    - <img src="docs/assets/prerelease.png" width="500" />
     - To automatically release the snapshot to `npm` and `sonatype`, publish the prerelease
     - Snapshots are released to the `snapshot` tag on `npm`. You can install them with `npm install @guardian/apps-rendering-api-models@snapshot`
