@@ -16,4 +16,4 @@ if [[ ${VERSION: -9} == "-SNAPSHOT" ]] ; then
 fi
 
 echo "Releasing version $VERSION Sonatype"
-sbt "clean" "project scalaApiModels" "release release-version $VERSION with-defaults"
+sbt "clean" "project scalaApiModels" "set isSnapshot := false" "release release-version $VERSION with-defaults"
