@@ -60,6 +60,11 @@ struct Branding {
     7: required string aboutUri
 }
 
+struct SurveyQuestion {
+    1: required string question
+    2: required bool askWhy
+}
+
 struct FormOption {
     1: required string label
     2: required string value
@@ -75,13 +80,50 @@ struct FormField {
     7: required list<FormOption> options
 }
 
-struct Fields {
+struct EmailFields {
+    1: required string name
+    2: required string theme
+    3: required string about
+    4: required string description
+    5: required string frequency
+    6: required string listId
+}
+
+struct BadgeFields {
+    1: required string seriesTag
+    2: required string imageUrl
+    3: optional string classModifier
+}
+
+struct EpicFields {
+    1: required string campaignId
+}
+
+struct ReportFields {
+    1: required string campaignId
+}
+
+struct SurveyFields {
+    1: required string campaignId
+    2: required list<SurveyQuestion> questions
+}
+
+struct ParticipationFields {
     1: required string callout
     2: required i32 formId
     3: required string tagName
     4: optional string description
     5: required list<FormField> formFields
     6: optional string formUrl
+}
+
+union CampaignFields {
+    1: EmailFields email
+    2: BadgeFields badge
+    3: EpicFields epic
+    4: ReportFields report
+    5: SurveyFields survey
+    6: ParticipationFields callout
 }
 
 struct Campaign {
@@ -91,7 +133,7 @@ struct Campaign {
     4: optional i64 activeFrom
     5: optional i64 activeUntil
     6: required bool displayOnSensitive
-    7: required Fields fields
+    7: required CampaignFields fields
 }
 
 struct Scorer {
@@ -134,9 +176,14 @@ struct RenderingRequest {
     3: optional bool specialReport
     4: optional map<string,string> targetingParams
     5: optional Branding branding
-    6: optional list<Campaign> campaigns
+    /*
+     * Replaced by field number 11, also called "campaigns".
+     * That field contains more possible types of campaign.
+     */
+    // 6: optional list<Campaign> campaigns
     7: optional RelatedContent relatedContent
     8: optional FootballContent footballContent
     9: optional Edition edition
     10: optional Newsletter promotedNewsletter
+    11: optional list<Campaign> campaigns
 }
