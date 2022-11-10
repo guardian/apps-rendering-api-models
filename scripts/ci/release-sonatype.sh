@@ -17,7 +17,7 @@ fi
 
 if ! scripts/ci/version-exists-sonatype.sh $VERSION ; then
     echo "Releasing version $VERSION Sonatype"
-    sbt "clean" "project scalaApiModels" "release release-version $VERSION with-defaults"
+    sbt "clean" "project scalaApiModels" "set isSnapshot := false" "release release-version $VERSION with-defaults"
 else
     echo "Not releasing"
 fi
