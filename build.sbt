@@ -36,7 +36,7 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
   .settings(
     name := "apps-rendering-api-models",
 
-	Compile / scroogeLanguages := Seq("scala"),
+	  Compile / scroogeLanguages := Seq("scala"),
 
     libraryDependencies ++= Seq(
       "org.apache.thrift" % "libthrift" % "0.16.0",
@@ -60,22 +60,22 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
       url = url("https://github.com/guardian")
     )),
 
-    releaseProcess := Seq[ReleaseStep](
-      checkSnapshotDependencies,
-      inquireVersions,
-      runClean,
-      runTest,
-      setReleaseVersion,
-      releaseStepCommand("publishSigned"),
-      ReleaseStep(action = st => {
-        // sonatypeBundleRelease should only be called if we are not doing a snapshot release
-        // see: https://github.com/xerial/sbt-sonatype/blob/33b6ea4e5a6ca519213f20c349a8a4f57171929a/README.md#buildsbt
-        if (!isSnapshot.value) {
-          releaseStepCommand("sonatypeBundleRelease")
-        }
-        st
-      }),
-    )
+    releaseProcess := {
+      val process = Seq[ReleaseStep](
+        checkSnapshotDependencies,
+        inquireVersions,
+        runClean,
+        runTest,
+        setReleaseVersion,
+        releaseStepCommand("publishSigned"),
+      )
+
+      if (!isSnapshot.value) {
+        process ++ Seq[ReleaseStep](releaseStepCommand("sonatypeBundleRelease"))
+      } else {
+        process
+      }
+    }
   )
 
 lazy val tsApiModels = project.in(file("models") / "ts")
