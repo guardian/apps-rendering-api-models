@@ -10,7 +10,7 @@ then
 fi
 
 # Get just the http status from the request
-HTTP_STATUS=$(curl -s -o /dev/null -I -w "%{http_code}" https://repo1.maven.org/maven2/com/gu/apps-rendering-api-models_2.12/$VERSION)
+HTTP_STATUS=$(curl -s -o /dev/null -I -w "%{http_code}" https://oss.sonatype.org/service/local/repositories/releases/content/com/gu/apps-rendering-api-models_2.12/$VERSION/)
 
 # 404 is our failure state, as the version wasn't found so it hasn't been released yet
 if [[ $HTTP_STATUS == 404 ]]
