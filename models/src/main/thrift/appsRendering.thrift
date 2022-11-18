@@ -50,6 +50,11 @@ struct RelatedContent {
     2: required list<RelatedItem> relatedItems
 }
 
+struct NewRelatedContent {
+    1: required string title
+    2: required list<v1.Content> relatedItems
+}
+
 struct Branding {
     1: required string brandingType
     2: required string sponsorName
@@ -181,9 +186,19 @@ struct RenderingRequest {
      * That field contains more possible types of campaign.
      */
     // 6: optional list<Campaign> campaigns
+    /*
+     * This field will be deprecated in the next major version, in favour of field number 12
+    */
     7: optional RelatedContent relatedContent
     8: optional FootballContent footballContent
     9: optional Edition edition
     10: optional Newsletter promotedNewsletter
     11: optional list<Campaign> campaigns
+    /*
+     * Field 12 will supersede field 7
+     * To ensure we don't lose related content whilst MAPI and AR
+     * use different versions of these models, we should populate both
+     * fields until the transition is complete.
+    */
+    12: optional NewRelatedContent newRelatedContent
 }
