@@ -50,8 +50,16 @@ struct RelatedContent {
     2: required list<RelatedItem> relatedItems
 }
 
+enum OnwardsContentCategory {
+    PAID,
+    GALLERY,
+    SPORTS,
+    STORY_PACKAGE,
+    DEFAULT
+}
+
 struct OnwardsContent {
-    1: required string title
+    1: required OnwardsContentCategory category
     2: required list<v1.Content> onwardsItems
 }
 
