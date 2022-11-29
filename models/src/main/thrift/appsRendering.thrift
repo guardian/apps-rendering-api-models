@@ -50,9 +50,9 @@ struct RelatedContent {
     2: required list<RelatedItem> relatedItems
 }
 
-struct NewRelatedContent {
+struct OnwardsContent {
     1: required string title
-    2: required list<v1.Content> relatedItems
+    2: required list<v1.Content> onwardsItems
 }
 
 struct Branding {
@@ -200,5 +200,5 @@ struct RenderingRequest {
      * use different versions of these models, we should populate both
      * fields until the transition is complete.
     */
-    12: optional NewRelatedContent newRelatedContent
+    12: optional OnwardsContent onwardsContent
 }
