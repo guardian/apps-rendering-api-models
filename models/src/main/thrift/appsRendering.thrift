@@ -60,7 +60,7 @@ enum OnwardsContentCategory {
 
 struct OnwardsContent {
     1: required OnwardsContentCategory category
-    2: required list<v1.Content> onwardsItems
+    2: required list<v1.Content> content
 }
 
 struct Branding {
