@@ -53,9 +53,10 @@ struct RelatedContent {
 enum OnwardsContentCategory {
     PAID,
     GALLERY,
-    SPORTS,
+    SPORT,
     STORY_PACKAGE,
-    DEFAULT
+    SERIES,
+    RELATED
 }
 
 struct OnwardsContent {
