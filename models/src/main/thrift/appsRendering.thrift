@@ -168,6 +168,8 @@ struct Newsletter {
     4: required string description
     5: required string frequency
     6: required string successDescription
+    7: optional string regionFocus
+    8: required boolean paused
 }
 
 struct RenderingRequest {
