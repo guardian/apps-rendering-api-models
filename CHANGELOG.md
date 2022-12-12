@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 3.1.0
+
+### Minor Changes
+
+- a4e85db: add Newsletter.paused and Newsletter.regionFocus
+
 ## 3.0.0
 
 ### Major Changes
