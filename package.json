@@ -1,6 +1,6 @@
 {
   "name": "apps-rendering-api-models",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "These models are used to communicate with the Apps Rendering API",
   "private": true,
   "scripts": {
