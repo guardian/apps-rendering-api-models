@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 4.0.0
+
+### Major Changes
+
+- de73054: Adding Europe edition to Editions enum
+
 ## 3.1.0
 
 ### Minor Changes
