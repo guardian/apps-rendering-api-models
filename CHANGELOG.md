@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 4.1.0
+
+### Minor Changes
+
+- 2dd63cf: Bumping content-api-models version to "17.4.2". This version includes a showTableOfContents bool as per this PR https://github.com/guardian/content-api-models/pull/217.
+
 ## 4.0.0
 
 ### Major Changes
