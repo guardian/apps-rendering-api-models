@@ -127,6 +127,12 @@ union CampaignFields {
     6: ParticipationFields callout
 }
 
+
+struct Contact {
+    1: required string name
+    2: required string value
+}
+
 struct Campaign {
     1: required string id
     2: required string name
@@ -135,6 +141,7 @@ struct Campaign {
     5: optional i64 activeUntil
     6: required bool displayOnSensitive
     7: required CampaignFields fields
+    8: optional list<Contact> contacts
 }
 
 struct Scorer {
