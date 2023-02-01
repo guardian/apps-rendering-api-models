@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 4.2.0
+
+### Minor Changes
+
+- bb6f172: Add an optional Contacts array to the Campaign Participation fields
+
 ## 4.1.0
 
 ### Minor Changes
