@@ -109,6 +109,11 @@ struct SurveyFields {
     2: required list<SurveyQuestion> questions
 }
 
+struct Contact {
+    1: required string name
+    2: required string value
+}
+
 struct ParticipationFields {
     1: required string callout
     2: required i32 formId
@@ -116,6 +121,7 @@ struct ParticipationFields {
     4: optional string description
     5: required list<FormField> formFields
     6: optional string formUrl
+    7: optional list<Contact> contacts
 }
 
 union CampaignFields {
@@ -126,6 +132,7 @@ union CampaignFields {
     5: SurveyFields survey
     6: ParticipationFields callout
 }
+
 
 struct Campaign {
     1: required string id
