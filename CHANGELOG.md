@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 5.0.1
+
+### Patch Changes
+
+- fe7b44b: Fixes the Contact field ids which prevented model compilation
+
 ## 5.0.0
 
 ### Major Changes
