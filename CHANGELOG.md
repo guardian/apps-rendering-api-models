@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 5.0.0
+
+### Major Changes
+
+- 7b36c83: This breaking changes adds 2 additional fields to the contacts array on the callout campaign - urlPrefix, which is required, and guidance, which is optional
+
 ## 4.2.0
 
 ### Minor Changes
