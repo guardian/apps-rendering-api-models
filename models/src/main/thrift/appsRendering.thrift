@@ -112,6 +112,8 @@ struct SurveyFields {
 struct Contact {
     1: required string name
     2: required string value
+    2: required string urlPrefix
+    2: optional string guidance
 }
 
 struct ParticipationFields {
