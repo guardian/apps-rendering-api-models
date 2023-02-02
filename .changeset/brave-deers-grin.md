@@ -1,5 +1,5 @@
 ---
-"apps-rendering-api-models": minor
+"apps-rendering-api-models": patch
 ---
 
 Fixes the Contact field ids which prevented model compilation
