@@ -1,5 +1,5 @@
 ---
-"apps-rendering-api-models": minor
+"apps-rendering-api-models": major
 ---
 
-Adds hidden field with type boolean to the FormField
+Adds required hidden field with type boolean to the FormField
