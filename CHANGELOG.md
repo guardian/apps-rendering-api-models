@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 6.0.0
+
+### Major Changes
+
+- 8c65e61: Adds required hidden field with type boolean to the FormField
+
 ## 5.0.1
 
 ### Patch Changes
