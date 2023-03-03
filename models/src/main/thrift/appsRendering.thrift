@@ -79,6 +79,7 @@ struct FormField {
     5: required string type
     6: required bool mandatory
     7: required list<FormOption> options
+    8: required bool hidden
 }
 
 struct EmailFields {
