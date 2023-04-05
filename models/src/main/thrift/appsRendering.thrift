@@ -125,6 +125,7 @@ struct ParticipationFields {
     5: required list<FormField> formFields
     6: optional string formUrl
     7: optional list<Contact> contacts
+    8: optional string prompt
 }
 
 union CampaignFields {
