@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 6.1.0
+
+### Minor Changes
+
+- 577d2e2: This changes pulls in the latest version of content-api-models
+
 ## 6.0.0
 
 ### Major Changes
