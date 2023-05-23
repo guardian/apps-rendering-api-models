@@ -28,13 +28,16 @@ lazy val commonSettings = Seq(
 )
 
 ThisBuild / organization := "com.gu"
-ThisBuild / scalaVersion := "2.12.17"
+ThisBuild / scalaVersion := "2.13.11"
 ThisBuild / licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
 lazy val scalaApiModels = project.in(file("models") / "scala")
   .settings(commonSettings)
   .settings(
     name := "apps-rendering-api-models",
+
+    crossScalaVersions := Seq(scalaVersion.value, "2.12.17"),
+    releaseCrossBuild := true,
 
 	  Compile / scroogeLanguages := Seq("scala"),
 
@@ -67,7 +70,7 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
         runClean,
         runTest,
         setReleaseVersion,
-        releaseStepCommand("publishSigned"),
+        releaseStepCommandAndRemaining("+publishSigned"),
       )
 
       if (!isSnapshot.value) {
