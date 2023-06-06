@@ -9,6 +9,9 @@ jobs:
   create_release_pr:
     name: Create release PR
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
 
