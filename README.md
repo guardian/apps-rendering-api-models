@@ -1,6 +1,7 @@
 # apps-rendering-api-models
-
+![npm](https://img.shields.io/npm/v/@guardian/apps-rendering-api-models)
 [![apps-rendering-api-models Scala version support](https://index.scala-lang.org/guardian/apps-rendering-api-models/apps-rendering-api-models/latest-by-scala-version.svg?platform=jvm)](https://index.scala-lang.org/guardian/apps-rendering-api-models/apps-rendering-api-models)
+
 
 These models are used to communicate with the Apps Rendering API
 
