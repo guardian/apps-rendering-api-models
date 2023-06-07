@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 6.1.2
+
+### Patch Changes
+
+- 3fe859f: Test release after PR #57 - was `pull-requests: write` required?
+
 ## 6.1.1
 
 ### Patch Changes
