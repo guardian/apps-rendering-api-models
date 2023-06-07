@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 6.1.1
+
+### Patch Changes
+
+- 3f459e4: Test patch release to confirm PR #54 worked
+
 ## 6.1.0
 
 ### Minor Changes
