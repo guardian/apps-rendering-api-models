@@ -2,8 +2,10 @@
 ![npm](https://img.shields.io/npm/v/@guardian/apps-rendering-api-models)
 [![apps-rendering-api-models Scala version support](https://index.scala-lang.org/guardian/apps-rendering-api-models/apps-rendering-api-models/latest-by-scala-version.svg?platform=jvm)](https://index.scala-lang.org/guardian/apps-rendering-api-models/apps-rendering-api-models)
 
+This project contains Thrift models and a way to publish them as Scala and TypeScript packages. The packages are used by MAPI to communicate with the Apps Rendering API. These two projects can be found here:
 
-These models are used to communicate with the Apps Rendering API
+- MAPI (uses the Scala package): https://github.com/guardian/mobile-apps-api
+- Apps-Rendering (uses the TypeScript package): https://github.com/guardian/dotcom-rendering/tree/main/apps-rendering
 
 ## How to release to NPM and Sonatype
 
@@ -26,3 +28,7 @@ To create a changeset, ensure you are using the correct Node (and associated npm
     - <img src="docs/assets/prerelease.png" width="500" />
     - To automatically release the snapshot to `npm` and `sonatype`, publish the prerelease
     - Snapshots are released to the `snapshot` tag on `npm`. You can install them with `npm install @guardian/apps-rendering-api-models@snapshot`
+
+## How to run the tests
+
+If you run `sbt test` it will fail, you can only run `sbt compile` to check that it's working correctly. This project doesn't have tests because it's used to auto-generate Scala and TypeScript packages from Thrift definitions, there's no Scala or TS source code.
