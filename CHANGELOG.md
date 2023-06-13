@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 6.1.3
+
+### Patch Changes
+
+- 9cc0b53: Added a Scala 2.13 version of the library.
+
 ## 6.1.2
 
 ### Patch Changes
