@@ -1,5 +1,12 @@
 # apps-rendering-api-models
 
+## 6.1.4
+
+### Patch Changes
+
+- 85ef657: Updates version of semver and breakword
+- c16f161: Bump node to 18.18.0
+
 ## 6.1.3
 
 ### Patch Changes
