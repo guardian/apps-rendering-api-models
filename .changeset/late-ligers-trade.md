@@ -2,4 +2,4 @@
 "apps-rendering-api-models": patch
 ---
 
-Updates version of semver
+Updates version of semver and breakword
