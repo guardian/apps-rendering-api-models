@@ -30,6 +30,29 @@ To create a changeset, ensure you are using the correct Node (and associated npm
     - To automatically release the snapshot to `npm` and `sonatype`, publish the prerelease
     - Snapshots are released to the `snapshot` tag on `npm`. You can install them with `npm install @guardian/apps-rendering-api-models@snapshot`
 
+### Diagram
+
+```mermaid
+flowchart TD
+    Title([Releasing a Snapshot])
+    Title ~~~ Step1
+
+    Step1[Push branch]
+    Step2[Create & Publish a prerelease in GitHub]
+    Info>fa:fa-info-circle Tag must end in '-SNAPSHOT']
+
+    Step1 -- then --> Step2
+    Info -.-> Step2
+    
+    Step3[GitHub Action]
+    Step2 -. triggers .-> Step3
+    
+    Step4[Publish to Sonatype]
+    Step5[Publish to NPM]
+    Step3-.->Step4
+    Step3-.->Step5
+```
+
 ## How to run the tests
 
 If you run `sbt test` it will fail, you can only run `sbt compile` to check that it's working correctly. This project doesn't have tests because it's used to auto-generate Scala and TypeScript packages from Thrift definitions, there's no Scala or TS source code.
