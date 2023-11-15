@@ -19,38 +19,59 @@ To create a changeset, ensure you are using the correct Node (and associated npm
 - When your feature PR is merged to `main`, the [changesets action](.github/workflows/changesets.yaml) will open a PR against `main` with the details of all unreleased changes. This is a "Release PR"
 - When ready to release, merge the Release PR
 
+### Diagram
+
+```mermaid
+flowchart TD
+    Title([Releasing a new version])
+    Title ~~~ AddChangeset
+
+    AddChangeset[Add changeset to your branch]
+    GHBranchActions[Create and merge PR]
+    GHA[GitHub Actions]
+    ReleasePR[Release PR]
+    GHA2[GitHub Actions]
+    ReleaseNPM[Release to NPM]
+    ReleaseSonatype[Release to Sonatype]
+
+    AddChangeset-->GHBranchActions-.triggers.->GHA-.opens.->ReleasePR--merge-->GHA2
+
+    GHA2-.->ReleaseNPM
+    GHA2-.->ReleaseSonatype
+```
+
 ## How to release a Snapshot to NPM and Sonatype
 
 - Push the branch with the changes you want to test to GitHub
 - [**Click here**](https://github.com/guardian/apps-rendering-api-models/releases/new?prerelease=true) to create a **Prerelease** using GitHub Releases
-    - Set the Target to your branch
-    - You must also create a tag for the snapshot release. Use the following format: `v0.0.0-YYYY-MM-DD-SNAPSHOT`. For example, `v0.0.0-2022-10-20-SNAPSHOT`. It is important the tag **begins** with `v` and **ends** with `-SNAPSHOT`.
-    - Make sure the "Set as pre-release" box is ticked:
-    - <img src="docs/assets/prerelease.png" width="500" />
-    - To automatically release the snapshot to `npm` and `sonatype`, publish the prerelease
-    - Snapshots are released to the `snapshot` tag on `npm`. You can install them with `npm install @guardian/apps-rendering-api-models@snapshot`
+  - Set the Target to your branch
+  - You must also create a tag for the snapshot release. Use the following format: `v0.0.0-YYYY-MM-DD-SNAPSHOT`. For example, `v0.0.0-2022-10-20-SNAPSHOT`. It is important the tag **begins** with `v` and **ends** with `-SNAPSHOT`.
+  - Make sure the "Set as pre-release" box is ticked:
+  - <img src="docs/assets/prerelease.png" width="500" />
+  - To automatically release the snapshot to `npm` and `sonatype`, publish the prerelease
+  - Snapshots are released to the `snapshot` tag on `npm`. You can install them with `npm install @guardian/apps-rendering-api-models@snapshot`
 
 ### Diagram
 
 ```mermaid
 flowchart TD
     Title([Releasing a Snapshot])
-    Title ~~~ Step1
+    Title ~~~ PushBranch
 
-    Step1[Push branch]
-    Step2[Create & Publish a prerelease in GitHub]
-    Info>fa:fa-info-circle Tag must end in '-SNAPSHOT']
+    PushBranch[Push branch]
+    CreatePrerelease[Create & Publish a prerelease in GitHub]
+    Info>Tag must end in '-SNAPSHOT']
 
-    Step1 -- then --> Step2
-    Info -.-> Step2
-    
-    Step3[GitHub Action]
-    Step2 -. triggers .-> Step3
-    
-    Step4[Publish to Sonatype]
-    Step5[Publish to NPM]
-    Step3-.->Step4
-    Step3-.->Step5
+    PushBranch -- then --> CreatePrerelease
+    Info -.-> CreatePrerelease
+
+    GHA[GitHub Action]
+    CreatePrerelease -. triggers .-> GHA
+
+    Sonatype[Publish to Sonatype]
+    NPM[Publish to NPM]
+    GHA-.->Sonatype
+    GHA-.->NPM
 ```
 
 ## How to run the tests
