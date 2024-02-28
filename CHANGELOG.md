@@ -1,5 +1,13 @@
 # apps-rendering-api-models
 
+## 7.0.0
+
+### Major Changes
+
+- 2b0fefc: Update dependencies to latest
+
+  Content API models and Content Atom models libraries have added new fields making them binary incompatible, so this is a major release of apps-rendering-api-models
+
 ## 6.2.0
 
 ### Minor Changes
