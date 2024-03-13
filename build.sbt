@@ -36,7 +36,7 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
   .settings(
     name := "apps-rendering-api-models",
 
-    crossScalaVersions := Seq(scalaVersion.value, "2.12.17"),
+    crossScalaVersions := Seq(scalaVersion.value, "2.12.19"),
     releaseCrossBuild := true,
 
 	  Compile / scroogeLanguages := Seq("scala"),
