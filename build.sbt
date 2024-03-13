@@ -1,9 +1,9 @@
 import ReleaseTransformations._
 
 val contentEntityVersion = "2.2.1"
-val contentAtomVersion = "4.0.0"
+val contentAtomVersion = "4.0.1"
 val storyPackageVersion = "2.2.0"
-val contentApiModelsVersion = "20.1.0"
+val contentApiModelsVersion = "21.0.0"
 
 val scroogeDependencies = Seq(
   "content-api-models",
@@ -28,7 +28,7 @@ lazy val commonSettings = Seq(
 )
 
 ThisBuild / organization := "com.gu"
-ThisBuild / scalaVersion := "2.13.11"
+ThisBuild / scalaVersion := "2.13.13"
 ThisBuild / licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
 lazy val scalaApiModels = project.in(file("models") / "scala")
@@ -36,14 +36,14 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
   .settings(
     name := "apps-rendering-api-models",
 
-    crossScalaVersions := Seq(scalaVersion.value, "2.12.17"),
+    crossScalaVersions := Seq(scalaVersion.value, "2.12.19"),
     releaseCrossBuild := true,
 
 	  Compile / scroogeLanguages := Seq("scala"),
 
     libraryDependencies ++= Seq(
-      "org.apache.thrift" % "libthrift" % "0.16.0",
-      "com.twitter" %% "scrooge-core" % "22.1.0",
+      "org.apache.thrift" % "libthrift" % "0.19.0",
+      "com.twitter" %% "scrooge-core" % "22.12.0",
       "com.gu" %% "content-api-models-scala" % contentApiModelsVersion
     ) ++ libraryDeps,
 
