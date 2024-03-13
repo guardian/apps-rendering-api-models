@@ -1,7 +1,7 @@
 import ReleaseTransformations._
 
 val contentEntityVersion = "2.2.1"
-val contentAtomVersion = "4.0.0"
+val contentAtomVersion = "4.0.1"
 val storyPackageVersion = "2.2.0"
 val contentApiModelsVersion = "21.0.0"
 
