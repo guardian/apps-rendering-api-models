@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 9.0.0
+
+### Major Changes
+
+- ce05701: This changes pulls in the latest version of content-api-models
+
 ## 8.0.0
 
 ### Major Changes
