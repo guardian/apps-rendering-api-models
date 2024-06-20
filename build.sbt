@@ -3,7 +3,7 @@ import ReleaseTransformations._
 val contentEntityVersion = "2.2.1"
 val contentAtomVersion = "4.0.0"
 val storyPackageVersion = "2.2.0"
-val contentApiModelsVersion = "23.0.0"
+val contentApiModelsVersion = "25.0.0"
 
 val scroogeDependencies = Seq(
   "content-api-models",
