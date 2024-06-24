@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/guardian/apps-rendering-api-models#readme",
   "dependencies": {
-    "@changesets/cli": "^2.27.3"
+    "@changesets/cli": "^2.27.6"
   }
 }
