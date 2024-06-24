@@ -1,5 +1,11 @@
 # apps-rendering-api-models
 
+## 9.1.0
+
+### Minor Changes
+
+- f576414: Bump content-api-models version to 25.0.0 in order to pull in new ListElement fields used by Mini
+
 ## 9.0.0
 
 ### Major Changes
