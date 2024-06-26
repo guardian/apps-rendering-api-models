@@ -40,7 +40,6 @@ val artifactProductionSettings = Seq(
 )
 
 lazy val root = (project in file("."))
-  .settings(artifactProductionSettings)
   .aggregate(scalaApiModels)
   .settings(
     publish / skip := true,
@@ -60,7 +59,7 @@ lazy val root = (project in file("."))
   )
 
 lazy val scalaApiModels = project.in(file("models") / "scala")
-  .settings(commonSettings)
+  .settings(artifactProductionSettings, commonSettings)
   .settings(
     name := "apps-rendering-api-models",
     scalacOptions := Seq("-release:11"),
