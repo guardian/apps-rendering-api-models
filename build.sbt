@@ -1,4 +1,5 @@
 import ReleaseTransformations._
+import sbtversionpolicy.withsbtrelease.ReleaseVersion
 
 val contentEntityVersion = "3.0.3"
 val contentAtomVersion = "4.0.0"
@@ -27,17 +28,44 @@ lazy val commonSettings = Seq(
 	Compile / scroogeThriftDependencies ++= scroogeDependencies,
 )
 
-ThisBuild / organization := "com.gu"
-ThisBuild / scalaVersion := "2.13.11"
-ThisBuild / licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
+val artifactProductionSettings = Seq(
+  organization := "com.gu",
+  scalaVersion := "2.13.14",
+  // scrooge 21.3.0: Builds are now only supported for Scala 2.12+
+  // https://twitter.github.io/scrooge/changelog.html#id11
+  crossScalaVersions := Seq("2.12.18", scalaVersion.value),
+  scalacOptions ++= Seq("-release:11"),// going ahead with release option only. We might add more options if any implementation comes in future :  ("-feature", "-deprecation", "-unchecked", "-Xfatal-warnings")
+  licenses := Seq(License.Apache2),
+  Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-u", s"test-results/scala-${scalaVersion.value}", "-o")
+)
+
+lazy val root = (project in file("."))
+  .settings(artifactProductionSettings)
+  .aggregate(scalaApiModels)
+  .settings(
+    publish / skip := true,
+    releaseVersion := ReleaseVersion.fromAggregatedAssessedCompatibilityWithLatestRelease().value,
+    releaseCrossBuild := true,
+    releaseProcess := Seq[ReleaseStep](
+      checkSnapshotDependencies,
+      inquireVersions,
+      runClean,
+      runTest,
+      setReleaseVersion,
+      commitReleaseVersion,
+      tagRelease,
+      setNextVersion,
+      commitNextVersion
+    )
+  )
 
 lazy val scalaApiModels = project.in(file("models") / "scala")
   .settings(commonSettings)
   .settings(
     name := "apps-rendering-api-models",
+    scalacOptions := Seq("-release:11"),
 
-    crossScalaVersions := Seq(scalaVersion.value, "2.12.17"),
-    releaseCrossBuild := true,
+    crossScalaVersions := Seq(scalaVersion.value, "2.12.19"),
 
 	  Compile / scroogeLanguages := Seq("scala"),
 
@@ -46,39 +74,6 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
       "com.twitter" %% "scrooge-core" % "22.1.0",
       "com.gu" %% "content-api-models-scala" % contentApiModelsVersion
     ) ++ libraryDeps,
-
-    publishTo := sonatypePublishToBundle.value,
-
-    scmInfo := Some(ScmInfo(
-      url("https://github.com/guardian/apps-rendering-api-models"),
-      "scm:git:git@github.com:guardian/apps-rendering-api-models.git"
-    )),
-
-    homepage := Some(url("https://github.com/guardian/apps-rendering-api-models")),
-
-    developers := List(Developer(
-      id = "Guardian",
-      name = "Guardian",
-      email = null,
-      url = url("https://github.com/guardian")
-    )),
-
-    releaseProcess := {
-      val process = Seq[ReleaseStep](
-        checkSnapshotDependencies,
-        inquireVersions,
-        runClean,
-        runTest,
-        setReleaseVersion,
-        releaseStepCommandAndRemaining("+publishSigned"),
-      )
-
-      if (!isSnapshot.value) {
-        process ++ Seq[ReleaseStep](releaseStepCommand("sonatypeBundleRelease"))
-      } else {
-        process
-      }
-    }
   )
 
 lazy val tsApiModels = project.in(file("models") / "ts")
@@ -90,7 +85,7 @@ lazy val tsApiModels = project.in(file("models") / "ts")
     Compile / scroogeDefaultJavaNamespace := scroogeTypescriptNpmPackageName.value,
 
     scroogeTypescriptPackageLicense := "Apache-2.0",
-	Compile / scroogeLanguages := Seq("typescript"),
+	  Compile / scroogeLanguages := Seq("typescript"),
 
     scroogeTypescriptPackageMapping := Map(
       "content-api-models" -> "@guardian/content-api-models",
