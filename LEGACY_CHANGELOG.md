@@ -1,4 +1,6 @@
-# apps-rendering-api-models
+# This file is now redundant, as we have moved the release process to gha-scala-library-release-workflow. The new changelog can be found here: https://github.com/guardian/apps-rendering-api-models/releases
+
+apps-rendering-api-models
 
 ## 9.1.0
 

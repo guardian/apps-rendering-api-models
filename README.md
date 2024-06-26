@@ -11,3 +11,9 @@ This project contains Thrift models and a way to publish them as Scala and TypeS
 ## How to run the tests
 
 If you run `sbt test` it will fail, you can only run `sbt compile` to check that it's working correctly. This project doesn't have tests because it's used to auto-generate Scala and TypeScript packages from Thrift definitions, there's no Scala or TS source code.
+
+# Publishing a new release
+
+This repo uses [`gha-scala-library-release-workflow`](https://github.com/guardian/gha-scala-library-release-workflow)
+to automate publishing Scala & NPM releases of (both full & preview releases) - see
+[**Making a Release**](https://github.com/guardian/gha-scala-library-release-workflow/blob/main/docs/making-a-release.md).
