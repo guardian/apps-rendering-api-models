@@ -79,6 +79,7 @@ lazy val tsApiModels = project.in(file("models") / "ts")
   .enablePlugins(ScroogeTypescriptGen)
   .settings(commonSettings)
   .settings(
+    publish / skip := true,
     name := "apps-rendering-api-models-ts",
     scroogeTypescriptNpmPackageName := "@guardian/apps-rendering-api-models",
     Compile / scroogeDefaultJavaNamespace := scroogeTypescriptNpmPackageName.value,
