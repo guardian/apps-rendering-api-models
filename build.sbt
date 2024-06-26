@@ -2,7 +2,7 @@ import ReleaseTransformations._
 import sbtversionpolicy.withsbtrelease.ReleaseVersion
 
 val contentEntityVersion = "3.0.3"
-val contentAtomVersion = "4.0.0"
+val contentAtomVersion = "4.0.4"
 val storyPackageVersion = "2.2.0"
 val contentApiModelsVersion = "25.0.0"
 
@@ -69,8 +69,8 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
 	  Compile / scroogeLanguages := Seq("scala"),
 
     libraryDependencies ++= Seq(
-      "org.apache.thrift" % "libthrift" % "0.16.0",
-      "com.twitter" %% "scrooge-core" % "22.1.0",
+      "org.apache.thrift" % "libthrift" % "0.20.0",
+      "com.twitter" %% "scrooge-core" % "22.12.0",
       "com.gu" %% "content-api-models-scala" % contentApiModelsVersion
     ) ++ libraryDeps,
   )
