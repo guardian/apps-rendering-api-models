@@ -13,9 +13,7 @@ jobs:
   security:
     uses: guardian/.github/.github/workflows/sbt-node-snyk.yml@main
     with:
-      DEBUG: true
       SKIP_NODE: true
-      SKIP_PYTHON: true
       ORG: guardian-dotcom-n2y
       JAVA_VERSION: 11
       PROJECT_FILE: ./build.sbt
