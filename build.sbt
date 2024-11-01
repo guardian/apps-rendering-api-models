@@ -4,7 +4,7 @@ import sbtversionpolicy.withsbtrelease.ReleaseVersion
 val contentEntityVersion = "3.0.3"
 val contentAtomVersion = "4.0.0"
 val storyPackageVersion = "2.2.0"
-val contentApiModelsVersion = "25.0.0"
+val contentApiModelsVersion = "25.1.1"
 
 val scroogeDependencies = Seq(
   "content-api-models",
