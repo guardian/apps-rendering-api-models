@@ -15,11 +15,5 @@ jobs:
 
       - uses: guardian/setup-scala@v1
 
-      - uses: actions/setup-java@v3
-        with:
-          distribution: corretto
-          java-version: 11
-          cache: sbt
-
       - name: Test model
         run: sbt "clean" "project scalaApiModels" "set isSnapshot := false" "compile"
