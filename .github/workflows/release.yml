@@ -28,6 +28,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org
+      - uses: sbt/setup-sbt@v1.1.0
       - name: Release Typescript to NPM
         run: |
           sbt "project tsApiModels" "releaseNpm ${{ needs.scala-maven-release.outputs.RELEASE_VERSION }}"
