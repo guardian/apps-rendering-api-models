@@ -1,6 +1,6 @@
 addSbtPlugin("com.twitter" % "scrooge-sbt-plugin" % "22.1.0")
 
-addSbtPlugin("com.gu" % "sbt-scrooge-typescript" % "2.0.0")
+addSbtPlugin("com.gu" % "sbt-scrooge-typescript" % "4.0.0-PREVIEW.fpdowngrade-scrooge.2025-10-01T1350.ab270126")
 
 addSbtPlugin("com.github.sbt" % "sbt-release" % "1.4.0")
 
