@@ -2,7 +2,7 @@ import ReleaseTransformations._
 import sbtversionpolicy.withsbtrelease.ReleaseVersion
 
 val contentEntityVersion = "3.0.3"
-val contentAtomVersion = "6.1.0"
+val contentAtomVersion = "6.1.1-PREVIEW.updateguardianscrooge-extraspull39.2025-10-03T1535.58680a03"
 val storyPackageVersion = "2.2.0"
 val contentApiModelsVersion = "31.0.0"
 
