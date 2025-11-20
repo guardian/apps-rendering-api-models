@@ -1,7 +1,7 @@
 import ReleaseTransformations._
 import sbtversionpolicy.withsbtrelease.ReleaseVersion
 
-val contentEntityVersion = "3.0.3"
+val contentEntityVersion = "4.0.0"
 val contentAtomVersion = "9.0.0"
 val storyPackageVersion = "2.2.0"
 val contentApiModelsVersion = "34.0.0"
