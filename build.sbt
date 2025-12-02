@@ -30,7 +30,7 @@ lazy val commonSettings = Seq(
 
 val artifactProductionSettings = Seq(
   organization := "com.gu",
-  scalaVersion := "2.13.14",
+  scalaVersion := "2.13.16",
   // scrooge 21.3.0: Builds are now only supported for Scala 2.12+
   // https://twitter.github.io/scrooge/changelog.html#id11
   crossScalaVersions := Seq("2.12.18", scalaVersion.value),
@@ -64,13 +64,13 @@ lazy val scalaApiModels = project.in(file("models") / "scala")
     name := "apps-rendering-api-models",
     scalacOptions := Seq("-release:11"),
 
-    crossScalaVersions := Seq(scalaVersion.value, "2.12.19"),
+    crossScalaVersions := Seq(scalaVersion.value, "2.12.20"),
 
 	  Compile / scroogeLanguages := Seq("scala"),
 
     libraryDependencies ++= Seq(
-      "org.apache.thrift" % "libthrift" % "0.16.0",
-      "com.twitter" %% "scrooge-core" % "22.1.0",
+      "org.apache.thrift" % "libthrift" % "0.22.0",
+      "com.twitter" %% "scrooge-core" % "22.12.0",
       "com.gu" %% "content-api-models-scala" % contentApiModelsVersion
     ) ++ libraryDeps,
   )
